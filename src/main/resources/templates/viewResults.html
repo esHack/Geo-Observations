@@ -1,0 +1,221 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<script   src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script   src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.25/jquery.autocomplete.min.js"></script>
+
+<body>
+
+	
+	
+	<div  style="width:40%; float:right;">
+	<input type="text"  id="w-input-search" value="" placeholder="start typing here.." style="position:absolute;right: 370px"></input>
+	<span>
+	  <button id="button-id" type="button" style="position:absolute;right: 310px">Search</button>
+	</span>
+	
+	<div align="left">
+	<br> </br> 
+	<table>
+	<tr><td>Name:</td> <td id="name"></td></tr>
+	<tr><td>Type:</td> <td id="type"></td></tr>
+	<tr><td>Image:</td> <td><img id="image" src="" height="300px" width="300px" border="0" /></td></tr>
+	<tr><td>X:</td> <td id="X"></td></tr>
+	<tr><td>Y:</td> <td id="Y"></td></tr>
+	<tr><td>Z:</td> <td id="Z"></td></tr>
+	<tr><td>Date/Time:</td> <td id="date"></td></tr>
+	<tr><td>Recorded By:</td> <td id="recBy"></td></tr>
+	<tr><td>Recorder Email:</td> <td id="recEmail"></td></tr>
+	<tr><td>Drilled Depth:</td> <td id="depth"></td></tr>
+	<tr><td>Species:</td> <td id="species"></td></tr>
+	<tr><td>Image Name:</td> <td id="imgName"></td></tr>
+	<tr><td>Porosity:</td> <td id="porosity"></td></tr>
+	
+	</table>
+  </div>
+  </div>
+	
+
+	<div id="esh" style="width:60%; float:left">
+	<b>Boreholes::</b>
+		<table border="1">
+		
+		<tr style="font-weight: bold">
+		<td>Name</td><td>type</td><td>X</td><td>Y</td><td>Z</td><td>Date/Time</td>
+		<td>recordedBy</td><td>recorderEmail</td><td>drilledDepth</td></tr>
+		
+		<tr th:each="borehole : ${boreholes}" >
+		
+		<td th:text="${borehole.name}"> </td> 
+		<td th:text="${borehole.type}"> </td>
+		<td th:text="${borehole.X}"> </td>
+		<td th:text="${borehole.Y}"> </td>
+		<td th:text="${borehole.Z}"> </td>
+		<td th:text="${borehole.date}"> </td>
+		<td th:text="${borehole.recordedBy}"> </td>
+		<td th:text="${borehole.recorderEmail}"> </td>
+		<td th:text="${borehole.drilledDepth}"> </td>
+		</tr>
+		</table>
+		
+		
+		<b>Fossils::</b>
+		<table border="1">
+		<tr style="font-weight: bold">
+		<td>Name</td><td>type</td><td>X</td><td>Y</td><td>Z</td><td>Date/Time</td>
+		<td>recordedBy</td><td>recorderEmail</td><td>species</td><td>image</td></tr>
+		
+		<tr th:each="fossil : ${fossils}" >
+		
+		<td th:text="${fossil.name}"> </td> 
+		<td th:text="${fossil.type}"> </td>
+		<td th:text="${fossil.X}"> </td>
+		<td th:text="${fossil.Y}"> </td>
+		<td th:text="${fossil.Z}"> </td>
+		<td th:text="${fossil.date}"> </td>
+		<td th:text="${fossil.recordedBy}"> </td>
+		<td th:text="${fossil.recorderEmail}"> </td>
+		<td th:text="${fossil.species}"> </td>
+		<td th:text="${fossil.image}"> </td>
+		</tr>
+		</table>
+		
+		
+		<b>Rocks::</b>
+		<table border="1">
+		
+		<tr style="font-weight: bold">
+		<td>Name</td><td>type</td><td>X</td><td>Y</td><td>Z</td><td>Date/Time</td>
+		<td>recordedBy</td><td>recorderEmail</td><td>rockName</td><td>image</td></tr>
+		
+		<tr th:each="rock : ${rocks}" >
+		
+		<td th:text="${rock.name}"> </td> 
+		<td th:text="${rock.type}"> </td>
+		<td th:text="${rock.X}"> </td>
+		<td th:text="${rock.Y}"> </td>
+		<td th:text="${rock.Z}"> </td>
+		<td th:text="${rock.date}"> </td>
+		<td th:text="${rock.recordedBy}"> </td>
+		<td th:text="${rock.recorderEmail}"> </td>
+		<td th:text="${rock.rockName}"> </td>
+		<td th:text="${rock.image}"> </td>
+		
+		</tr>
+		</table>
+		
+		<b>Measurements::</b>
+		<table border="1">
+		<tr style="font-weight: bold">
+		<td>Name</td><td>type</td><td>X</td><td>Y</td><td>Z</td><td>Date/Time</td>
+		<td>recordedBy</td><td>recorderEmail</td><td>Porosity</td></tr>
+		
+		<tr th:each="measurement : ${measurements}" >
+		
+		<td th:text="${measurement.name}"> </td> 
+		<td th:text="${measurement.type}"> </td>
+		<td th:text="${measurement.X}"> </td>
+		<td th:text="${measurement.Y}"> </td>
+		<td th:text="${measurement.Z}"> </td>
+		<td th:text="${measurement.date}"> </td>
+		<td th:text="${measurement.recordedBy}"> </td>
+		<td th:text="${measurement.recorderEmail}"> </td>
+		<td th:text="${measurement.porosity}"> </td>
+		</tr>
+		</table>
+		
+		<b>Sorted Fossils::</b>
+		<table border="1">
+		
+		<tr style="font-weight: bold">
+		<td>Name</td><td>type</td><td>X</td><td>Y</td><td>Z</td><td>Date/Time</td>
+		<td>recordedBy</td><td>recorderEmail</td><td>species</td><td>image</td></tr>
+		
+		<tr th:each="fossil : ${fossils}" >
+		
+		<td th:text="${fossil.name}"> </td> 
+		<td th:text="${fossil.type}"> </td>
+		<td th:text="${fossil.X}"> </td>
+		<td th:text="${fossil.Y}"> </td>
+		<td th:text="${fossil.Z}"> </td>
+		<td th:text="${fossil.date}"> </td>
+		<td th:text="${fossil.recordedBy}"> </td>
+		<td th:text="${fossil.recorderEmail}"> </td>
+		<td th:text="${fossil.species}"> </td>
+		<td th:text="${fossil.image}"> </td>
+		</tr>
+		</table>
+	</div>
+	
+	
+
+</body>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+    function call(){
+    	
+    	
+    	alert('hi');
+    	document.getElementById('esh').style.display = 'none';   
+    }
+    
+    
+    $(document).ready(function() {
+    	
+    	 $('#image[src=""]').hide();
+         $('#image:not([src=""])').show();
+
+    	$('#w-input-search').autocomplete({
+    		serviceUrl: '/getTags',
+    		paramName: "tagName",
+    		delimiter: ",",
+    	   transformResult: function(response) {
+    		    	
+    		return {      	
+    		  //must convert json to javascript object before process
+    		  suggestions: $.map($.parseJSON(response), function(item) {
+    		            	
+    		      return { value: item, data: item };
+    		   })
+    		            
+    		 };
+    		        
+                }
+    		    
+    	 });
+    	
+    	 $("button").click(function(){
+    		
+    		 $.ajax({type: "GET",
+                 url: "/getObject",
+                 data: { tagName: document.getElementById('w-input-search').value },
+                 success:function(result){
+           document.getElementById('name').innerHTML =result.name;
+           document.getElementById('type').innerHTML =result.type;
+           document.getElementById('X').innerHTML 	 =result.x;
+           document.getElementById("image").src=result.image;
+           if(result.image==undefined){
+           $('#image').hide();}
+           else{
+           $('#image').show();}
+           document.getElementById('Y').innerHTML =result.y;
+           document.getElementById('Z').innerHTML =result.z;
+           document.getElementById('date').innerHTML =result.date;
+           document.getElementById('recBy').innerHTML =result.recordedBy;
+           document.getElementById('recEmail').innerHTML =result.recorderEmail;
+           
+           document.getElementById('species').innerHTML =result.species;
+           document.getElementById('depth').innerHTML =result.drilledDepth;
+           document.getElementById('imgName').innerHTML =result.image;
+           document.getElementById('porosity').innerHTML =result.porosity;
+           
+         }});
+    		 
+    	    });
+    				
+      });
+    
+/*]]>*/
+</script>
+
+</html>

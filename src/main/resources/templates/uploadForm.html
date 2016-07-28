@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr><td>File to upload:</td><td><input type="file" name="file" multiple="multiple"/></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<i><p>(Note: Upload all files in the folder including Data.txt and other .jpeg file </p>
+		<p>only .txt and .jpeg will be uploaded.. Rest of the files will be ignored </p>
+		<p>All files can be selected once (ctrl+A) and can be uploaded...)</p></i>
+		
+	</div>
+
+</body>
+</html>
