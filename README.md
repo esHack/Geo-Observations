@@ -1,5 +1,9 @@
 # Geo-Observations
 
+Application is deployed on Heroku.. You can check running version of the application here
+
+https://geo-observ.herokuapp.com/
+
 Technolgies : Java, Spring-boot, Maven ,Jquery
 
 1. Update Pom.xml which will download dependencies
