@@ -240,7 +240,7 @@ public class ObservationsController {
 	public @ResponseBody
 	List<String> getTags(@RequestParam String tagName) {
 		System.out.println(tagName);
-		return simulateSearchResult(tagName);
+		return simulateSearchResult(tagName.toLowerCase());
 
 	}
 	
@@ -248,32 +248,32 @@ public class ObservationsController {
 	public @ResponseBody
 	Object getObject(@RequestParam String tagName) {
 		System.out.println(tagName);
-		return fetchObject(tagName);
+		return fetchObject(tagName.toLowerCase());
 
 	}
 
 	private Object fetchObject(String tagName) {
 	
 		for (Fossil fossil : fossils) {
-			if (fossil.getName().contains(tagName)) {
+			if (fossil.getName().toLowerCase().contains(tagName)) {
 				return fossil;
 			}
 		}
 		
 		for (Borehole borehole : boreholes) {
-			if (borehole.getName().contains(tagName)) {
+			if (borehole.getName().toLowerCase().contains(tagName)) {
 				return (borehole);
 			}
 		}
 		
 		for (Measurement measurement : measurements) {
-			if (measurement.getName().contains(tagName)) {
+			if (measurement.getName().toLowerCase().contains(tagName)) {
 				return(measurement);
 			}
 		}
 		
 		for (Rock rock : rocks) {
-			if (rock.getName().contains(tagName)) {
+			if (rock.getName().toLowerCase().contains(tagName)) {
 				return(rock);
 			}
 		}
@@ -286,25 +286,25 @@ public class ObservationsController {
 	
 		
 		for (Fossil fossil : fossils) {
-			if (fossil.getName().contains(tagName)) {
+			if (fossil.getName().toLowerCase().contains(tagName)) {
 				result.add(fossil.getName());
 			}
 		}
 		
 		for (Borehole borehole : boreholes) {
-			if (borehole.getName().contains(tagName)) {
+			if (borehole.getName().toLowerCase().contains(tagName)) {
 				result.add(borehole.getName());
 			}
 		}
 		
 		for (Measurement measurement : measurements) {
-			if (measurement.getName().contains(tagName)) {
+			if (measurement.getName().toLowerCase().contains(tagName)) {
 				result.add(measurement.getName());
 			}
 		}
 		
 		for (Rock rock : rocks) {
-			if (rock.getName().contains(tagName)) {
+			if (rock.getName().toLowerCase().contains(tagName)) {
 				result.add(rock.getName());
 			}
 		}
